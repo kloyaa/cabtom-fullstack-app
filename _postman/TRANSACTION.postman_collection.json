@@ -1,0 +1,476 @@
+{
+	"info": {
+		"_postman_id": "0181cc5f-5f95-4eda-b7da-d484edd4c2ab",
+		"name": "TRANSACTION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23251203"
+	},
+	"item": [
+		{
+			"name": "ORDER STATUSES",
+			"item": [
+				{
+					"name": "GET ALL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "accountId",
+									"value": "631b0c17c59f56d1b27e386c",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Kolya",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "customer@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "5000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}/api/transaction/order-status/all",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"transaction",
+								"order-status",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CREATE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": " Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"payment\": {\r\n        \"amount\": 20900\r\n    },\r\n    \"order\": {\r\n        \"product\": \"5d68344b-c2e9-4bcc-9212-e808fb7c240c\",\r\n        \"status\": [\r\n            \"727695f7-e605-4003-9d1d-684e26f97cfe\"\r\n        ],\r\n        \"deliveryAddress\": \"Xavier Estates Phase 4\"\r\n    },\r\n    \"unit\": 20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/transaction",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ORDERS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{local}}/api/transaction/all",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0RDERS  BY PARTICIPANTS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{local}}/api/transaction/order-participant/filter/by-user",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"order-participant",
+						"filter",
+						"by-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0RDERS  BY PARTICIPANT ABSENCES",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{local}}/api/transaction/order-participant/filter/by-user-absence",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"order-participant",
+						"filter",
+						"by-user-absence"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ORDERS BY DATE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "accountId",
+							"value": "631b0c17c59f56d1b27e386c",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Kolya",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "customer@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "5000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{local}}/api/transaction/all/filter/by-date?date=Dec 29, 2022&endDate=Jan 1, 2023&status=pending",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"all",
+						"filter",
+						"by-date"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "Dec 29, 2022"
+						},
+						{
+							"key": "endDate",
+							"value": "Jan 1, 2023"
+						},
+						{
+							"key": "status",
+							"value": "pending"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ORDERS BY USER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Beraer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "accountId",
+							"value": "631b0c17c59f56d1b27e386c",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Kolya",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "customer@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "5000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{local}}/api/transaction/all/filter/by-user?_id=63ad836fcbd8c67b5dab9e8d&status=pending",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"all",
+						"filter",
+						"by-user"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "63ad836fcbd8c67b5dab9e8d"
+						},
+						{
+							"key": "status",
+							"value": "pending"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ORDER PARTICIPANTS",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"63ae523e77af56980774062c\",\r\n    \"user\": \"63ae626024d6d0beb585996d\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/transaction/order-participant/edit",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"order-participant",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PAYMENT PROOF",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"63ae523e77af56980774062c\",\r\n    \"url\": \"http://res.cloudinary.com/diigkcc6g/image/upload/v1672378768/Projects/Cabtom/t7rcgksqyczyietlixgo.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/transaction/payment-proof/edit",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"payment-proof",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ORDER STATUS",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"63adaf288ddc07f1f6ee2d6c\",\r\n    \"uid\": \"24a05745-4e27-4ad6-965e-f1164d9a9fa4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/transaction/order-status/edit",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"order-status",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PAYMENT STATUS",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"63adaf288ddc07f1f6ee2d6c\",\r\n    \"status\": \"approved\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/transaction/payment-status/edit",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"payment-status",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

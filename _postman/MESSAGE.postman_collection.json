@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "7729cb34-56e4-4292-9cbd-1ef1fd3fb6c0",
+		"name": "MESSAGE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23251203"
+	},
+	"item": [
+		{
+			"name": "CREATE MESSAGE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": {\r\n        \"first\": \"Wild\",\r\n        \"last\": \"Boar\"\r\n    },\r\n    \"email\": \"wild.boar@email.com\",\r\n    \"message\": \"ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/message/ext",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"message",
+						"ext"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{local}}/api/message/ext/all",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"message",
+						"ext",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE MESSAGE",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"63ad91c5e79beef63a5fe173\",\r\n    \"opened\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/message/ext/edit?",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"message",
+						"ext",
+						"edit"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE MESSAGE",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"631b6184dbac8f3e0cee7423\",\r\n    \"opened\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/message/ext/:_id",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"message",
+						"ext",
+						":_id"
+					],
+					"variable": [
+						{
+							"key": "_id",
+							"value": "63ad93cf997195d1c98bda4b"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

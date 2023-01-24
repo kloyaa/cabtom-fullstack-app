@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "618ffcdb-5b98-4301-a112-cd02f17c6da9",
+		"name": "SUBSCRIPTION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23251203"
+	},
+	"item": [
+		{
+			"name": "GET ALL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/api/subscription/all",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"subscription",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE SUBSCRIPTION",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"madridano.kolya@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/subscription",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"subscription"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

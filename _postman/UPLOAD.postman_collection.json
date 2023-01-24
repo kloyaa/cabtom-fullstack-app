@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "b616c256-b4d4-428c-85fd-a5ce7d5b1859",
+		"name": "UPLOAD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23251203"
+	},
+	"item": [
+		{
+			"name": "UPLOAD IMAGE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "media",
+							"type": "file",
+							"src": "/C:/Users/madri/Pictures/123.PNG"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{local}}/api/upload/img",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"upload",
+						"img"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "cdf18ac7-e29e-48eb-80d5-5dc3d2695022",
+		"name": "PROFILE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23251203"
+	},
+	"item": [
+		{
+			"name": "Staff",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"staff\",\r\n        \"company\": \"Amazon\",\r\n    \"name\": {\r\n        \"first\": \"Kolya\",\r\n        \"last\": \"Madridano\",\r\n        \"initial\": \"Manguiat\"\r\n    },\r\n    \"contact\": {\r\n        \"email\": \"madridano.kolya@gmail.com\",\r\n        \"number\": \"09277522772\"\r\n    },\r\n    \"address\": {\r\n        \"primary\": \"Xavier Estates Phase 4\",\r\n        \"permanent\": \"Prairietown, Altera\"\r\n    },\r\n    \"staff\": {\r\n        \"position\": \"Tig arrange sa box\",\r\n        \"shift\": \"Graveyard: 8:00 - 5:00 AM\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/profile/create",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"client\",\r\n    \"company\": \"Amazon\",\r\n    \"name\": {\r\n        \"first\": \"Kolya\",\r\n        \"last\": \"Madridano\",\r\n        \"initial\": \"Manguiat\"\r\n    },\r\n    \"contact\": {\r\n        \"email\": \"madridano.kolya@gmail.com\",\r\n        \"number\": \"09277522772\"\r\n    },\r\n    \"address\": {\r\n        \"primary\": \"Xavier Estates Phase 4\",\r\n        \"permanent\": \"Prairietown, Altera\"\r\n    },\r\n    \"staff\": {\r\n        \"position\": \"Tig arrange sa box\",\r\n        \"shift\": \"Graveyard: 8:00 - 5:00 AM\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/profile/create",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Farmer",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"farmer\",\r\n    \"company\": \"Amazon\",\r\n    \"name\": {\r\n        \"first\": \"Kolya\",\r\n        \"last\": \"Madridano\",\r\n        \"initial\": \"Manguiat\"\r\n    },\r\n    \"contact\": {\r\n        \"email\": \"madridano.kolya@gmail.com\",\r\n        \"number\": \"09277522772\"\r\n    },\r\n    \"address\": {\r\n        \"primary\": \"Xavier Estates Phase 4\",\r\n        \"permanent\": \"Prairietown, Altera\"\r\n    },\r\n    \"staff\": {\r\n        \"position\": \"Tig arrange sa box\",\r\n        \"shift\": \"Graveyard: 8:00 - 5:00 AM\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/profile/create",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Driver",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"driver\",\r\n    \"company\": \"Amazon\",\r\n    \"name\": {\r\n        \"first\": \"Kolya\",\r\n        \"last\": \"Madridano\",\r\n        \"initial\": \"Manguiat\"\r\n    },\r\n    \"contact\": {\r\n        \"email\": \"madridano.kolya@gmail.com\",\r\n        \"number\": \"09277522772\"\r\n    },\r\n    \"address\": {\r\n        \"primary\": \"Xavier Estates Phase 4\",\r\n        \"permanent\": \"Prairietown, Altera\"\r\n    },\r\n    \"driver\": {\r\n        \"vehicleType\": \"Truck\",\r\n        \"vehiclePlateNumber\": \"KVD 10239F\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/profile/create",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Owner",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"owner\",\r\n    \"company\": \"Meta\",\r\n    \"name\": {\r\n        \"first\": \"Mark Elliot\",\r\n        \"last\": \"Zuckerberg\",\r\n        \"initial\": \"\"\r\n    },\r\n    \"birthdate\": \"May 14, 1984\r\n\",\r\n    \"contact\": {\r\n        \"email\": \"Mark Elliot Zuckerberg\",\r\n        \"number\": \"09277522772\"\r\n    },\r\n    \"address\": {\r\n        \"primary\": \"Menlo Park, California, United States\",\r\n        \"permanent\": \"White Plains, New York, United States\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/profile/create",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CREATE PROFILE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\": \"owner\",\r\n    \"name\": {\r\n        \"first\": \"Kolya\",\r\n        \"last\": \"Madridano\",\r\n        \"initial\": \"Manguiat\"\r\n    },\r\n    \"contact\": {\r\n        \"email\": \"madridano.kolya@gmail.com\",\r\n        \"number\": \"09277522772\"\r\n    },\r\n    \"address\": {\r\n        \"primary\": \"Xavier Estates Phase 4\",\r\n        \"permanent\": \"Prairietown, Altera\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/profile/create",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"profile",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY ROLES",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/profile/filter?role=farmer",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"profile",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "role",
+							"value": "client",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "staff",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "driver",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "owner",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "farmer"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE PROFILE",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"company\": \"Meta\",\r\n    \"name\": {\r\n        \"first\": \"Mark Elliot\",\r\n        \"last\": \"Zuckerberg\",\r\n        \"initial\": \"\"\r\n    },\r\n    \"contact\": {\r\n        \"number\": \"09277123456\",\r\n        \"email\": \"zuckerberg.mark@meta.com\"\r\n    },\r\n    \"address\": {\r\n        \"primary\": \"Hacker Way, Menlo Park, 94025 CA, United States of America\",\r\n        \"permanent\": \"White Plains, New York, United States\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/profile/edit",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"profile",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ME",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/profile/me",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"profile",
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

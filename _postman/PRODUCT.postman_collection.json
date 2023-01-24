@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "5d0040bb-718f-437d-b406-8f0f5b8dfd99",
+		"name": "PRODUCT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23251203"
+	},
+	"item": [
+		{
+			"name": "GET ONE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/product",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE PRODUCT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": \"63ad7dd84ecb0ced020b7fb2\",\r\n    \"name\": \"Honey Select Hybrid Sweetcorn\",\r\n    \"price\": 10,\r\n    \"unit\": 5999\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/product/edit",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"product",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

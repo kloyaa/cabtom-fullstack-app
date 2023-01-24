@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "4efdf089-8fa4-43ad-a560-ab5a9dc4a270",
+		"name": "LOG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23251203"
+	},
+	"item": [
+		{
+			"name": "EVENTS",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{local}}/api/logs/event",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SMS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/api/logs/sms",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"logs",
+						"sms"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
