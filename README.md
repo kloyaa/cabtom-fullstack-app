@@ -4,7 +4,6 @@
 </p>
 <br/>
 <h3>Installation Steps</h3>
-<br/><br/>
 <pre>
     1. Download Repository
     2. Open folder in VSCode
