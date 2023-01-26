@@ -4,15 +4,16 @@
 </p>
 <br/>
 <b>Installation Steps</b>
+<br/>
 <pre>
     1. Download Repository
     2. Open folder in VSCode
-    3. open terminal and type "npm install"
-    4. open terminal and type "cd client"
-    5. open terminal and type "npm install --legacy-peer-deps"
-    6. open terminal and type "cd .."
-    7. open terminal and type "npm run start."
+    3. open VSCode terminal and type "npm install"
+    4. open VSCode terminal and type "cd client"
+    5. open VSCode terminal and type "npm install --legacy-peer-deps"
+    6. open VSCode terminal and type "cd .."
+    7. open VSCode terminal and type "npm run start."
 </pre>
 <br/>
-Developer: Koala
+Developer: Koala <br/>
 Client: Clerk
