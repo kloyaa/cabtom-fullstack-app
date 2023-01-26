@@ -19,13 +19,13 @@ import { useCookie } from "react-use";
 import { IoIosArrowRoundBack } from "react-icons/io"
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { CabtomClient } from '../../../http/instance.http';
-import { AlertMessage } from '../../../component/alert.component';
-import img from "../../../images/px-img-3.jpg";
+import { AlertMessage } from '../../../../component/alert.component';
+import img from "../../../../images/px-img-3.jpg";
 import PasswordStrengthBar from 'react-password-strength-bar';
-import { passwordPattern } from '../../../const/pattern.const';
+import { passwordPattern } from '../../../../const/pattern.const';
+import { CabtomClient } from '../../../../http/instance.http';
 
-function UserRegister() {
+function ClientRegister() {
  const [authToken, setAuthToken, deleteAuthToken] = useCookie("authToken");
  const navigate = useNavigate();
 
@@ -95,7 +95,7 @@ function UserRegister() {
               variant={'unstyled'}
               fontWeight={'normal'}
               fontSize={'small'}
-              onClick={() => navigate("/user/login")}>
+              onClick={() => navigate("/user/client/login")}>
               Already have an account?
             </Button>
           </Stack>
@@ -121,4 +121,4 @@ function UserRegister() {
   </Stack>
 }
 
-export default UserRegister
+export default ClientRegister

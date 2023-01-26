@@ -105,9 +105,8 @@ router.get("/profile/me", jwtAuth, async (req, res) => {
         .sort({ createdAt: -1 })
         .then(value => {
             if(!value) return res
-                .status(profileNotFoundMsg)
-                .json(value);
-
+                .status(400)
+                .json(profileNotFoundMsg);
             return res.status(200).json(value);
         })
         .catch(err => res.status(400).json(err));

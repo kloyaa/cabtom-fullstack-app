@@ -8,14 +8,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFound from "./page/notfound.page";
 import Main from "./page";
 import About from "./page/about";
-import UserRegister from "./page/user/authentication/register.user.auth";
-import UserLogin from "./page/user/authentication/login.user.auth";
 import ClientMain from "./page/user/cllient.main";
 
 import "./index.css";
 import OrderSuccess from "./page/order-success.page";
 import ClientProfile from "./page/user/client-profile.page";
 import News from "./page/news";
+import ClientRegister from "./page/user/authentication/client/register.auth.client";
+import ClientLogin from "./page/user/authentication/client/login.auth.client";
 
 const router = createBrowserRouter([
   {
@@ -28,15 +28,15 @@ const router = createBrowserRouter([
     element: <About />,
   },
   {
-    path: "/user/login",
-    element: <UserLogin />,
+    path: "/user/client/login",
+    element: <ClientLogin />,
   },
   {
-    path: "/user/register",
-    element: <UserRegister />,
+    path: "/user/client/register",
+    element: <ClientRegister />,
   },
   {
-    path: "/user/profile",
+    path: "/user/client/profile",
     element: <ClientProfile />,
   },
   // Client routes
@@ -75,12 +75,12 @@ const theme = extendTheme({
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <ChakraProvider theme={theme}>
-      <ColorModeScript />
-      <RouterProvider router={router} />
-    </ChakraProvider>
-  </StrictMode>
+  // <StrictMode>
+  <ChakraProvider theme={theme}>
+    <ColorModeScript />
+    <RouterProvider router={router} />
+  </ChakraProvider>
+  // </StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -19,10 +19,11 @@ import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 import { useCookie, useLocation } from 'react-use';
 import { useNavigate } from 'react-router-dom';
 import { BiCart } from 'react-icons/bi';
+import { v4 as uuidv4 } from 'uuid';
 
 const Links = [
   { title: 'Transactions', path: "/dashboard" },
-  { title: 'Account', path: "/user/profile" },
+  { title: 'Account', path: "/user/client/profile" },
   { title: 'News', path: "/news" }
 ];
 
@@ -78,7 +79,7 @@ function ClientNavbar({ orderBtnFunction }) {
           spacing={4}
           display={{ base: 'none', md: 'flex' }}>
           {Links.map((link) => (
-            <NavLink key={link}>
+            <NavLink key={uuidv4()}>
               <Box onClick={() => navigate(link.path)}>
                 {link.title}
               </Box>
@@ -125,7 +126,7 @@ function ClientNavbar({ orderBtnFunction }) {
       <Box pb={4} display={{ md: 'none' }}>
         <Stack as={'nav'} spacing={4}>
           {Links.map((link) => (
-            <NavLink key={link}>
+            <NavLink key={uuidv4()}>
               <Box onClick={() => navigate(link.path)}>
                 {link.title}
               </Box>

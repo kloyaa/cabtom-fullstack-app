@@ -1,40 +1,35 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
   Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
   Button,
   Checkbox,
   Fade,
   Flex,
-  Heading,
-  Icon,
   Input,
   InputGroup,
   InputLeftElement,
   Stack,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 import ClientNavbar from "../../component/client-nav.component";
 import ClientStripedTable from "../../component/client-striped-table.component";
-import { ChevronRightIcon, SearchIcon } from "@chakra-ui/icons";
+import { SearchIcon } from "@chakra-ui/icons";
 import ModalOrder from "../../component/order-modal.component";
 import { CabtomClient } from "../../http/instance.http";
 import { setHeaders } from "../../utils/http-headers.utils";
 import { useCookie } from "react-use";
-import dayjs from "dayjs";
 import { currency } from "../../utils/formatter";
-import { IoIosExpand } from "react-icons/io";
-import { TiArrowMinimiseOutline } from "react-icons/ti";
-import { useLocation } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useLocation, useNavigate } from "react-router-dom";
+import dayjs from "dayjs";
 
 function ClientMain() {
   const [authToken, setAuthToken, deleteAuthToken] = useCookie("authToken");
   const trackingNoRef = useRef();
 
   const location = useLocation();
+  const navigate = useNavigate();
+
   const [checkedItems, setCheckedItems] = useState([false, false]);
   const [transactions, setTransactions] = useState({
     value: [],
@@ -42,7 +37,7 @@ function ClientMain() {
     expanded: false,
   });
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const toast = useToast();
   const allChecked = checkedItems.every(Boolean);
   const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
 
@@ -60,7 +55,24 @@ function ClientMain() {
       )
       .catch((err) => console.log(err));
   };
+
+  const getProfile= async () => {
+    await CabtomClient.get("/profile/me", {
+      ...setHeaders({ authToken }),
+    })
+      .then((value) => {
+        console.log(value);
+      })
+      .catch((err) => {
+        if(err.response?.status === 400)
+          return navigate("/user/client/profile");
+        if(err.response?.status === 401)
+          return navigate("/user/client/login", { replace: true });
+      });
+  };
+
   useEffect(() => {
+    getProfile();
     getTransactions();
     return () => {};
   }, [location.pathname]);

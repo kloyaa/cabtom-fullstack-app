@@ -17,12 +17,12 @@ import {
 import { IoIosArrowRoundBack } from "react-icons/io"
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { CabtomClient } from '../../../http/instance.http';
-import { AlertMessage } from '../../../component/alert.component';
-import img from "../../../images/px-img-3.jpg";
+import img from "../../../../images/px-img-3.jpg";
 import { useCookie } from 'react-use';
+import { CabtomClient } from '../../../../http/instance.http';
+import { AlertMessage } from '../../../../component/alert.component';
 
-function UserLogin() {
+function ClientLogin() {
   const [authToken, setAuthToken, deleteAuthToken] = useCookie("authToken");
   const navigate = useNavigate();
 
@@ -74,7 +74,7 @@ function UserLogin() {
               variant={'unstyled'}
               fontWeight={'normal'}
               fontSize={'small'}
-              onClick={() => navigate("/user/register")}>
+              onClick={() => navigate("/user/client/register")}>
               Not yet registered?
             </Button>
           </Stack>
@@ -100,4 +100,4 @@ function UserLogin() {
   </Stack>
 }
 
-export default UserLogin
+export default ClientLogin

@@ -77,7 +77,7 @@ export const Navbar = ({
             fontWeight={{ base: "medium", md: "normal" }}
             mr={{ base: "5", md: "10" }}
             cursor={"pointer"}
-            onClick={() => navigate("/user/login")}
+            onClick={() => navigate("/user/client/login")}
           >
             ACCOUNT
           </Box>
@@ -261,7 +261,7 @@ function Main() {
             colorScheme="teal"
             size="lg"
             mt={"12"}
-            onClick={() => navigate("/user/login")}
+            onClick={() => navigate("/user/client/login")}
           >
             Getting started
           </Button>

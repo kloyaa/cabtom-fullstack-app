@@ -74,13 +74,19 @@ import { setHeaders } from "../utils/http-headers.utils";
           },
           "unit": unit !== ""
             ? parseInt(unit)
-            :  parseInt(selectedUnit)
+            : parseInt(selectedUnit)
       }, setHeaders({ authToken }))
       .then((value) => {
         onClose();
         navigate("/order/successfull");
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        if(err.response?.status === 401) {
+          return navigate("/user/client/login", {
+            replace: true
+          });
+        }
+      })
     }
 
     useEffect(() => {
@@ -142,9 +148,10 @@ import { setHeaders } from "../utils/http-headers.utils";
                           isDisabled={watch("unit")?.length >= 1}
                         >
                           <Stack direction="row">
-                              {unitArray?.map((v) => <Radio value={v} colorScheme={"teal"} key={v}>
-                                  {v}
-                              </Radio>)}
+                              {unitArray?.map((v) => <Radio
+                                value={v}
+                                colorScheme={"teal"}
+                                key={v}> {v} </Radio>)}
                               </Stack>
                         </RadioGroup>
                       </Flex>
