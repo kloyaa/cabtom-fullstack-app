@@ -16,30 +16,62 @@ import ClientProfile from "./page/user/client-profile.page";
 import News from "./page/news";
 import ClientRegister from "./page/user/authentication/client/register.auth.client";
 import ClientLogin from "./page/user/authentication/client/login.auth.client";
+import StaffLogin from "./page/user/authentication/staff/login.auth.staff";
+import OwnerLogin from "./page/user/authentication/owner/login.auth.owner";
+import FarmerLogin from "./page/user/authentication/farmer/login.auth.farmer";
+import DriverLogin from "./page/user/authentication/driver/login.auth.driver";
+import MainOwner from "./page/owner/main.owner";
+import OwnerSMSNotification from "./page/owner/sms-notification.owner";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Main />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: "/about",
-    element: <About />,
-  },
+const loginRoutes = [
   {
     path: "/user/client/login",
     element: <ClientLogin />,
   },
   {
+    path: "/user/staff/login",
+    element: <StaffLogin />,
+  },
+  {
+    path: "/user/owner/login",
+    element: <OwnerLogin />,
+  },
+  {
+    path: "/user/farmer/login",
+    element: <FarmerLogin />,
+  },
+  {
+    path: "/user/driver/login",
+    element: <DriverLogin />,
+  },
+];
+
+const registrationRoutes = [
+  {
     path: "/user/client/register",
     element: <ClientRegister />,
   },
+];
+
+const profileRoutes = [
   {
     path: "/user/client/profile",
     element: <ClientProfile />,
   },
-  // Client routes
+];
+
+const others = [
+  {
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "/news",
+    element: <News />
+  }
+];
+
+const clientRoutes = [
   {
     path: "/dashboard",
     element: <ClientMain />,
@@ -48,11 +80,31 @@ const router = createBrowserRouter([
     path: "/order/successfull",
     element: <OrderSuccess />
   },
-  // Others
+];
+
+const ownerRoutes = [
   {
-    path: "/news",
-    element: <News />
-  }
+    path: "/dashboard/owner",
+    element: <MainOwner />,
+  },
+  {
+    path: "/owner/sms-notifications",
+    element: <OwnerSMSNotification />,
+  },
+]
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main />,
+    errorElement: <NotFound />,
+  },
+  ...loginRoutes,
+  ...profileRoutes,
+  ...others,
+  ...registrationRoutes,
+  ...clientRoutes,
+  ...ownerRoutes,
 ]);
 
 const theme = extendTheme({
@@ -60,7 +112,6 @@ const theme = extendTheme({
     Modal: {
       baseStyle: (props) => ({
          // define the part you're going to style
-
         overlay: {
           bg: 'blackAlpha.200', //change the background
           backdropFilter: 'blur(2px) hue-rotate(10deg)'

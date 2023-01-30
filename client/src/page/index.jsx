@@ -34,27 +34,11 @@ import Footer from "../component/footer.component";
 import { MdCheckCircle } from "react-icons/md";
 import { IoIosClose } from "react-icons/io";
 import { useState } from "react";
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
-    }}
-    href={"#"}
-  >
-    {children}
-  </Link>
-);
+
 
 export const Navbar = ({
   colorMode,
   toggleColorMode,
-  isOpen,
-  onOpen,
-  onClose,
   title,
 }) => {
   const navigate = useNavigate();

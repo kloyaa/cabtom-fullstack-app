@@ -22,6 +22,8 @@ import { useCookie } from "react-use";
 import { currency } from "../../utils/formatter";
 import { useLocation, useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
+import { axiosHttp, HttpMethods } from "../../_core/http/axios.http";
+import { ROLES } from "../../const/roles.const";
 
 function ClientMain() {
   const [authToken, setAuthToken, deleteAuthToken] = useCookie("authToken");
@@ -57,23 +59,25 @@ function ClientMain() {
   };
 
   const getProfile= async () => {
-    await CabtomClient.get("/profile/me", {
+    await axiosHttp({
+      url: "/profile/me",
+      method: HttpMethods.GET,
+      onErrorPaths: {
+        "UnauthorizedException": "/user/client/login"
+      },
       ...setHeaders({ authToken }),
     })
-      .then((value) => {
-        console.log(value);
-      })
-      .catch((err) => {
+    .then((v) => {})
+    .catch((err) => {
         if(err.response?.status === 400)
           return navigate("/user/client/profile");
-        if(err.response?.status === 401)
-          return navigate("/user/client/login", { replace: true });
-      });
+    });
   };
 
   useEffect(() => {
     getProfile();
     getTransactions();
+    window.document.title = `CABTOM | ${ROLES.CLIENT.toLocaleUpperCase()}`;
     return () => {};
   }, [location.pathname]);
 

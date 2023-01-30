@@ -1,6 +1,8 @@
 import { Box, Heading, Text, Button } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 export default function NotFound() {
+  const navigate = useNavigate();
   return (
     <Box textAlign="center" py={10} px={6}>
       <Heading
@@ -22,7 +24,8 @@ export default function NotFound() {
         colorScheme="teal"
         bgGradient="linear(to-r, teal.400, teal.500, teal.600)"
         color="white"
-        variant="solid">
+        variant="solid"
+        onClick={() => navigate(-1)}>
         Go to Home
       </Button>
     </Box>
