@@ -1,17 +1,13 @@
 import { CheckIcon } from "@chakra-ui/icons";
 import {
   Avatar,
-  Badge,
   Box,
-  Divider,
   Fade,
   Flex,
   Heading,
   Icon,
-  ScaleFade,
   SlideFade,
   Table,
-  TableCaption,
   TableContainer,
   Tbody,
   Td,
@@ -23,12 +19,10 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
-import dayjs from "dayjs";
 import React, { useState } from "react";
 import { Timeline, TimelineEvent } from "react-event-timeline";
 import { IoIosExpand } from "react-icons/io";
 import { TiArrowMinimiseOutline } from "react-icons/ti";
-import { v5 as uuidv5 } from 'uuid';
 
 function ClientStripedTable({ column, data }) {
   const [expand, setExpand] = useState(false);
