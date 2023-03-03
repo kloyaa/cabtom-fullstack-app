@@ -24,11 +24,6 @@ function OwnerSMSNotifStripedTable({ column, data }) {
 
   return (
     <TableContainer>
-      <Flex justifyContent={"space-between"}>
-        <Heading fontWeight={"medium"} mb={"5"}>
-          Recent Transactions ({data?.length})
-        </Heading>
-      </Flex>
       <Table variant="striped" colorScheme="gray" size={"sm"}>
         {/* <TableCaption>Imperial to metric conversion factors</TableCaption> */}
         <Thead>

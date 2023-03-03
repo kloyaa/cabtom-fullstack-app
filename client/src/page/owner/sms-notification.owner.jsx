@@ -1,7 +1,7 @@
-import { Box, Button, Flex, Heading, Text, Textarea, useToast } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Button, Flex, FormControl, FormLabel, Heading, Input, InputGroup, InputLeftElement, Select, Stack, Text, Textarea, useToast } from '@chakra-ui/react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { MdSend } from 'react-icons/md'
+import { MdContactPhone, MdSend } from 'react-icons/md'
 import { useCookie } from 'react-use'
 import OwnerNavbar from '../../component/owner-nav.component'
 import { SMS_TEMPLATES } from '../../const/text.const'
@@ -10,38 +10,44 @@ import { axiosHttp, HttpMethods } from '../../_core/http/axios.http'
 
 function OwnerSMSNotification() {
     const PAGE_TITLE = "SMS Notifications";
-    const { register, handleSubmit, setValue, formState: { isSubmitting } } = useForm();
+    const { register, handleSubmit, setValue, formState: { isSubmitting }, watch } = useForm();
+    const [state, setState] = useState({
+      selectedGroup: ""
+    });
+
     const [authToken, setAuthToken, deleteAuthToken] = useCookie("authToken");
     const toast = useToast();
 
     window.document.title = `CABTOM | ${PAGE_TITLE}`;
     const onSendSms = async (data) => {
-        await axiosHttp({
-            url: "/sms/semaphore/messages",
-            method: HttpMethods.POST,
-            onErrorPaths: {
-              "UnauthorizedException": "/user/owner/login"
-            },
-            payload:{
-                "sendername": "CabTom",
-                "number": "09277522772",
-                "message": data.message
-            },
-            ...setHeaders({ authToken }),
-          })
-          .then((v) => {
-            toast({
-                status: "success",
-                description: "The bulk SMS was delivered to the designated recipients successfully"
-             });
-          })
-          .catch((err) => {
-             toast({
-                status: "error",
-                description: "Message sending failed. Please check your internet connection and try again later."
-             });
-          });
+      console.log(data.group)
+        // await axiosHttp({
+        //     url: "/sms/semaphore/messages",
+        //     method: HttpMethods.POST,
+        //     onErrorPaths: {
+        //       "UnauthorizedException": "/user/owner/login"
+        //     },
+        //     payload:{
+        //         "sendername": "CabTom",
+        //         "number": data.number,
+        //         "message": data.message
+        //     },
+        //     ...setHeaders({ authToken }),
+        //   })
+        //   .then((v) => {
+        //     toast({
+        //         status: "success",
+        //         description: "The bulk SMS was delivered to the designated recipients successfully"
+        //      });
+        //   })
+        //   .catch((err) => {
+        //      toast({
+        //         status: "error",
+        //         description: "Message sending failed. Please check your internet connection and try again later."
+        //      });
+        //   });
     };
+
 
   return <>
     <OwnerNavbar />
@@ -49,6 +55,39 @@ function OwnerSMSNotification() {
       <Flex>
         <Box w={{ base: "full", md: "70%"}}>
             <form onSubmit={handleSubmit(onSendSms)}>
+                <Flex alignItems={"center"} gap={5}>
+                  <InputGroup opacity={state.selectedGroup !== "" ? 0.5 : 1}>
+                    <InputLeftElement
+                      pointerEvents="none"
+                      children={<MdContactPhone color="gray.300" />}
+                    />
+                    <Input
+                      type="number"
+                      placeholder="Recipient No."
+                      disabled={state.selectedGroup !== ""}
+                      maxLength={11}
+                      {...register("number", { maxLength: 255})}/>
+                  </InputGroup>
+                  <Text color={"gray.500"} textAlign={"center"} fontSize={"13"}>OR</Text>
+                  <FormControl opacity={watch("number") !== "" ? 0.5 : 1}>
+                    <Select
+                      placeholder='Select group of people'
+                      value={state.selectedGroup}
+                      onChange={(e) => {
+                        console.log(e.target.value)
+                        setValue("number", "");
+                        setState(prev => ({
+                          ...prev,
+                          selectedGroup: e.target.value
+                        }))
+                      }}>
+                      <option value={"staff"}>Staffs</option>
+                      <option value={"driver"}>Drivers</option>
+                      <option value={"farmer"}>Farmers</option>
+                      <option value={"customer"}>Client</option>
+                    </Select>
+                  </FormControl>
+                </Flex>
                 <Textarea
                     mt={'5'}
                     placeholder='Write a message...'
